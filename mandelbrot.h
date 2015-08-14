@@ -14,12 +14,12 @@ class Mandelbrot
     Q_OBJECT
 
 
-    Q_PROPERTY(float xFrom READ xFrom WRITE setXFrom)
-    Q_PROPERTY(float xTo READ xTo WRITE setXTo)
-    Q_PROPERTY(float yFrom READ yFrom WRITE setYFrom)
-    Q_PROPERTY(float yTo READ yTo WRITE setYTo)
-    Q_PROPERTY(int xRes READ xRes WRITE setXRes)
-    Q_PROPERTY(int yRes READ yRes WRITE setYRes)
+    Q_PROPERTY(float xFrom READ xFrom WRITE setXFrom NOTIFY xFromChanged)
+    Q_PROPERTY(float xTo READ xTo WRITE setXTo NOTIFY xToChanged)
+    Q_PROPERTY(float yFrom READ yFrom WRITE setYFrom NOTIFY yFromChanged)
+    Q_PROPERTY(float yTo READ yTo WRITE setYTo NOTIFY yToChanged)
+    Q_PROPERTY(int xRes READ xRes WRITE setXRes NOTIFY xResChanged)
+    Q_PROPERTY(int yRes READ yRes WRITE setYRes NOTIFY yResChanged)
 
 
 
@@ -48,6 +48,14 @@ public:
     void paint(QPainter *painter);
 
     Q_INVOKABLE void zoomIn(int x,int y,int width , int height);
+
+signals:
+    void xFromChanged();
+    void xToChanged();
+    void yFromChanged();
+    void yToChanged();
+    void xResChanged();
+    void yResChanged();
 
 private:
 

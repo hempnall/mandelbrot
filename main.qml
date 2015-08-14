@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Window 2.2
+import QtQuick.Controls 1.2
 import Fractals 1.0
 
 
@@ -18,6 +19,25 @@ Item {
 
         xRes: parent.width
         yRes: parent.height
+
+
+        Label {
+            id: imaginaryRange
+            text: "[" +  fractal.xFrom + "," + fractal.xTo + "]"
+            color: "yellow"
+            anchors.left: fractal.left
+            anchors.bottom: fractal.bottom
+
+        }
+
+        Label {
+            id: realRange
+            text: "[" +  fractal.yFrom + "i," + fractal.yTo + "i]"
+            color: "yellow"
+            anchors.left: fractal.left
+            anchors.bottom: imaginaryRange.top
+
+        }
 
         MouseArea {
             anchors.fill: parent

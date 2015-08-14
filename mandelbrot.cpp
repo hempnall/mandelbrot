@@ -63,22 +63,35 @@ float Mandelbrot::yTo() const   {
 }
 
 void Mandelbrot::setXFrom(const float xFrom)    {
-  xFrom_ = xFrom;
+  if (xFrom_ != xFrom) {
+    xFrom_ = xFrom;
+    emit xFromChanged();
+  }
 }
 
 void Mandelbrot::setXTo(const float xTo)    {
-    xTo_ = xTo;
+    if (xTo_ != xTo) {
+        xTo_ = xTo;
+        emit xToChanged();
+    }
 }
 
 void Mandelbrot::setYFrom(const float yFrom)    {
-    yFrom_ = yFrom;
+    if (yFrom != yFrom_) {
+        yFrom_ = yFrom;
+        emit yFromChanged();
+    }
 }
 
 void Mandelbrot::setYTo(const float yTo)    {
-  yTo_ = yTo;
+    if (yTo != yTo_)    {
+        yTo_ = yTo;
+        emit yToChanged();
+    }
 }
 
 int Mandelbrot::xRes() const    {
+
     return xRes_;
 }
 
@@ -87,10 +100,16 @@ int Mandelbrot::yRes() const    {
 }
 
 void Mandelbrot::setXRes(const int xRes)    {
-    xRes_ = xRes;
+    if (xRes != xRes_) {
+        xRes_ = xRes;
+        emit xResChanged();
+    }
 }
 
 
 void Mandelbrot::setYRes(const int yRes)    {
-    yRes_ = yRes;
+    if (yRes != yRes_) {
+        yRes_ = yRes;
+        emit yResChanged();
+    }
 }
